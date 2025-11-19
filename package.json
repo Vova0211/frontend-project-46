@@ -1,0 +1,23 @@
+{
+  "name": "@hexlet/code",
+  "version": "1.0.0",
+  "description": "[![Actions Status](https://github.com/Vova0211/frontend-project-46/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/Vova0211/frontend-project-46/actions)",
+  "homepage": "https://github.com/Vova0211/frontend-project-46#readme",
+  "bugs": {
+    "url": "https://github.com/Vova0211/frontend-project-46/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vova0211/frontend-project-46.git"
+  },
+  "bin": {
+    "gendiff": "bin/gendiff.js"
+  },
+  "license": "ISC",
+  "author": "Vova0211",
+  "type": "module",
+  "main": "bin/gendiff.js",
+  "dependencies": {
+    "commander": "^14.0.2"
+  }
+}
