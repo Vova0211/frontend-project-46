@@ -18,6 +18,8 @@
   "type": "module",
   "main": "bin/gendiff.js",
   "dependencies": {
-    "commander": "^14.0.2"
+    "commander": "^14.0.2",
+    "lodash": "^4.17.21",
+    "yaml": "^2.8.1"
   }
 }

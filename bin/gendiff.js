@@ -1,11 +1,6 @@
 #!/usr/bin/env node
 import { program } from "commander";
-import genDiff from "../src/gendiff.js";
-import fs from 'fs';
-
-const opt = {
-  // '.'
-}
+import genDiff from "../src/genDiff.js";
 
 program
   .name('gendiff')
@@ -15,14 +10,10 @@ program
   .argument('<filepath2>')
   .version('1.0.0')  
   .action((path1, path2) => {
-    const file1_raw = fs.readFileSync(path1);
-    const file2_raw = fs.readFileSync(path2);
-    
-
-    console.log(genDiff(JSON.parse(file1_raw), JSON.parse(file2_raw)));
+    console.log(genDiff(path1, path2));
   })
 
 program.parse();
 
-const options = program.opts();
-if (options.format) console.log("lol");
+// const options = program.opts();
+// if (options.format) console.log("lol");
