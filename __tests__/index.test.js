@@ -1,6 +1,7 @@
 import result from '../__fixtures__/result.js'
 import gendiff from '../src/index.js'
 import { resolve } from 'path'
+import { expect, test } from '@jest/globals'
 
 const paths = {
   json: ['file1.json', 'file2.json'],
