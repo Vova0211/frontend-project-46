@@ -3,13 +3,12 @@ import gendiff from '../src/index.js'
 import { resolve } from 'path'
 import { expect, test } from '@jest/globals'
 
-const paths = {
-  json: ['file1.json', 'file2.json'],
-}
+const extensNames = ['json', 'yml', 'yaml']
+const fileNames = ['file1', 'file2']
 
 const resolvePath = filePath => resolve(process.cwd(), `__fixtures__/${filePath}`)
 
-test('first json test', () => {
-  const jsonPaths = paths.json.map(path => resolvePath(path))
-  expect(gendiff(...jsonPaths)).toBe(result)
+test.each(extensNames)('gendiff %s', (format) => {
+  const paths = fileNames.map(path => `${resolvePath(path)}.${format}`)
+  expect(gendiff(...paths)).toBe(result)
 })
