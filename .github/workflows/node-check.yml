@@ -16,7 +16,9 @@ jobs:
       - run: make lint
 
       - run: make test
-
+  sonarqube:
+    runs-on: ubuntu-latest
+    steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
