@@ -1,28 +1,28 @@
 name: node-check
 
 on:
-  push:
+  - push
+  - pull_request
+  - workflow-dispatch
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [20.x, 22.x, 24.x]
+        
     steps:
-      - uses: actions/checkout@v1
-
-      - uses: actions/setup-node@v3
-
-      - run: make install
-
-      - run: make lint
-
-      - run: make test
-  sonarqube:
-    name: SonarQube
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
+        name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
         with:
-          fetch-depth: 0
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+      - run: make install
+      - run: make lint
+      - run: make test-coverage
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@v6
         env:
