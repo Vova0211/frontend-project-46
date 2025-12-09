@@ -3,7 +3,6 @@ name: node-check
 on:
   - push
   - pull_request
-  - workflow-dispatch
 
 jobs:
   build:
