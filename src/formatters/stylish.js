@@ -54,25 +54,18 @@ function nested(tree, depth) {
   }, `${offset}${key}: {\n`) + `${offset}}`
 }
 
-function root(tree, depth) {
-  return tree.children.reduce((ac, child) => {
-    return ac += `${types[child.type](child, depth)}\n`
-  }, '') + '}'
-}
-
 const types = {
   nested,
   removed,
   added,
   unchanged,
   changed,
-  root,
 }
 
 function stylish(tree) {
-  let result = `{\n`
-  result += types[tree.type](tree, 1)
-  return result
+  return tree.reduce((ac, child) => {
+    return ac += `${types[child.type](child, 1)}\n`
+  }, '{\n') + '}'
 }
 
 export default stylish

@@ -24,11 +24,4 @@ function buildAST(obj1, obj2) {
   return data_arr
 }
 
-const buildTree = (obj1, obj2) => {
-  return {
-    type: 'root',
-    children: buildAST(obj1, obj2),
-  }
-}
-
-export default buildTree
+export default buildAST
