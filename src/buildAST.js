@@ -24,4 +24,9 @@ function buildAST(obj1, obj2) {
   return data_arr
 }
 
-export default buildAST
+export default function (obj1, obj2) {
+  return {
+    key: 'root',
+    children: buildAST(obj1, obj2),
+  }
+}

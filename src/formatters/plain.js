@@ -39,7 +39,7 @@ const treeTypes = {
 }
 
 function plain(tree) {
-  return tree.reduce((ac, child) => {
+  return tree.children.reduce((ac, child) => {
     if (child.type === 'unchanged') return ac
     return ac += treeTypes[child.type](child)
   }, '').slice(0, -1)

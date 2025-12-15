@@ -1,5 +1,6 @@
 import result from '../__fixtures__/result.js'
 import resultPlain from '../__fixtures__/resultPlain.js'
+import resultJSON from '../__fixtures__/resultJSON.js'
 import gendiff from '../src/index.js'
 import { resolve } from 'path'
 import { expect, test } from '@jest/globals'
@@ -13,4 +14,5 @@ test.each(extensNames)('gendiff %s', (format) => {
   const paths = fileNames.map(path => `${resolvePath(path)}.${format}`)
   expect(gendiff(...paths, 'stylish')).toBe(result)
   expect(gendiff(...paths, 'plain')).toBe(resultPlain)
+  expect(gendiff(...paths, 'json')).toBe(resultJSON)
 })

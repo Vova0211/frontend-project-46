@@ -4,6 +4,7 @@ import stylish from './stylish.js'
 const formatters = {
   stylish,
   plain,
+  json: JSON.stringify,
 }
 
-export default formatters
+export default (tree, format) => formatters[format](tree)

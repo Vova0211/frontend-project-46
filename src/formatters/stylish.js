@@ -63,7 +63,7 @@ const types = {
 }
 
 function stylish(tree) {
-  return tree.reduce((ac, child) => {
+  return tree.children.reduce((ac, child) => {
     return ac += `${types[child.type](child, 1)}\n`
   }, '{\n') + '}'
 }

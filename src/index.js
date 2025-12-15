@@ -2,7 +2,7 @@ import path from 'path'
 import { readFileSync } from 'fs'
 import parseFile from './parsers.js'
 import buildTree from './buildAST.js'
-import formatters from './formatters/index.js'
+import formatter from './formatters/index.js'
 
 const getExtension = filename => path.extname(filename).slice(1)
 
@@ -15,7 +15,7 @@ function gendiff(filepath1, filepath2, format = 'stylish') {
     .map(path => resolvePath(path))
     .map(path => readFile(path))
   const tree = buildTree(...files)
-  return formatters[format](tree)
+  return formatter(tree, format)
 }
 
 export default gendiff
