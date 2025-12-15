@@ -27,7 +27,9 @@ function changed(tree) {
 
 const childTypes = {
   string: e => `'${e}'`,
+  symbol: e => `'${e}'`,
   boolean: e => e,
+  number: e => e,
   object: e => e === null ? null : '[complex value]',
 }
 
